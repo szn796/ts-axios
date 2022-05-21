@@ -23,3 +23,22 @@ export function normalizeHeaders(headers: any, normalizeName: string): any {
     }
   })
 }
+
+//将一行一行的headers解析为对象结构
+export function parseHeaders(headers: string): any {
+  let parsed = Object.create(null);
+  if (!headers) {
+    return parsed;
+  }
+  //   '\r\n'表示回城换行
+  headers.split('\r\n').forEach(line => {
+    let [key, val] = line.split(':');
+    key = key.trim().toLowerCase();
+    if (!key) return //进行下一个
+    if (val) {
+      val = val.trim();
+    }
+    parsed[key] = val;
+  })
+  return parsed;
+}
