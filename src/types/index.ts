@@ -12,7 +12,8 @@ export interface AxiosRequestConfig {
   data?: any,      //data是添加到请求体（body）中的， 用于post请求。
   params?: any,     //params是添加到url的请求字符串中的，用于get请求。
   headers?: any,
-  responseType?: XMLHttpRequestResponseType//指定ajax的响应的数据类型
+  responseType?: XMLHttpRequestResponseType,//指定ajax的响应的数据类型
+  timeout?: number, //设置超时时间
 }
 export interface AxiosResponse {
   data: any;                   //返回的数据
