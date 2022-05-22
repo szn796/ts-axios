@@ -12,13 +12,13 @@ export function processHeaders(headers: any, data: any): any {
 }
 
 //将header请求头标准格式化为'Content-Type'
-export function normalizeHeaders(headers: any, normalizeName: string): any {
+export function normalizeHeaders(headers: any, normalizedName: string): any {
   if (!headers) {
     return
   }
   Object.keys(headers).forEach(name => {
-    if (name !== normalizeName && name.toUpperCase() === normalizeName.toUpperCase()) {
-      headers[normalizeName] = headers[name];
+    if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
+      headers[normalizedName] = headers[name];
       delete headers[name];
     }
   })
